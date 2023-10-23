@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import Header from "./Header";
-// import { checkValidData } from "../utils/validate";
+import { checkValidData } from "../utils/validate";
 // import {
 //   createUserWithEmailAndPassword,
 //   signInWithEmailAndPassword,
@@ -13,7 +13,7 @@ import { BG_URL } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
-//   const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 //   const dispatch = useDispatch();
 
   const name = useRef(null);
@@ -21,9 +21,9 @@ const Login = () => {
   const password = useRef(null);
 
   const handleButtonClick = () => {
-    // const message = checkValidData(email.current.value, password.current.value);
-    // setErrorMessage(message);
-    // if (message) return;
+    const message = checkValidData(email.current.value, password.current.value);
+    setErrorMessage(message);
+    if (message) return;
 
     if (!isSignInForm) {
       // Sign Up Logic
@@ -114,7 +114,7 @@ const Login = () => {
           placeholder="Password"
           className="p-4 my-4 w-full bg-gray-700"
         />
-        <p className="text-red-500 font-bold text-lg py-2">{}</p>
+        <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>
         <button
           className="p-4 my-6 bg-red-700 w-full rounded-lg"
           onClick={handleButtonClick}
