@@ -59,9 +59,9 @@ const Header = () => {
       {user && (
         <div className="flex p-2 justify-between">
           <img
-            className="hidden md:block w-12 h-12"
+            className="hidden md:block w-10 h-10 rounded-full "
             alt="usericon"
-            src={user?.photoURL}
+            src= "https://avatars.githubusercontent.com/u/76400739?v=4"
           />
           <button onClick={handleSignOut} className="font-bold text-white ">
             (Sign Out)
